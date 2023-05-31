@@ -11,9 +11,18 @@ class PassGenerator(QtWidgets.QMainWindow):
         self.init_UI()
 
     def init_UI(self):
+        """
+        Метод, инициализирующий пользовательский интерфейс.
+        Устанавливает обработчик событий для кнопки Generate.
+        """
         self.ui.pushButton_generate.clicked.connect(self.Generate)
 
     def Generate(self):
+        """
+        Генерирует пароль в зависимости от выбранных настроек
+        и отображет его в текстовом поле.
+        Помимо пароля, также генерируется его хэш.
+        """
         password_length = self.ui.spinBox_passlength.value()
 
         if self.ui.radioButton_md5.isChecked():
