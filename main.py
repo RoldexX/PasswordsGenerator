@@ -8,7 +8,7 @@ from SHA256 import hash_password as sha256
 
 
 class PassGenerator(QtWidgets.QMainWindow):
-    acsept_simvols = 'ABCD'
+    acsept_simvols = 'ABCDEFGHIJKLMNOPRSTUVWXYZabcdefghijklmnoprstuvwxyz-_$*0123456789'
     def __init__(self):
         super(PassGenerator, self).__init__()
         self.ui = Ui_MainWindow()
@@ -32,6 +32,9 @@ class PassGenerator(QtWidgets.QMainWindow):
         """
         password_length = self.ui.spinBox_passlength.value()
         self.acsept_simvols = self.ui.acsept_simvols.text()
+        if self.acsept_simvols == '':
+            self.ui.statusbar.showMessage('Введите азбуку пароля!')
+            return
         password = password_generator(length=password_length, characters=self.acsept_simvols)
 
         self.ui.textEdit_password_generated.setText(password)
@@ -41,7 +44,7 @@ class PassGenerator(QtWidgets.QMainWindow):
         else:
             hash_text = sha256(password=password)
 
-        self.ui.textEdit_hash.setText(hash_text)
+        self.ui.lineEdit_hash.setText(hash_text)
 
     def Generate_hash(self):
         password = self.ui.textEdit_password_generated.toPlainText()
@@ -50,7 +53,7 @@ class PassGenerator(QtWidgets.QMainWindow):
         else:
             hash_text = sha256(password=password)
 
-        self.ui.textEdit_hash.setText(hash_text)
+        self.ui.lineEdit_hash.setText(hash_text)
 
 
 
