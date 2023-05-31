@@ -2,8 +2,13 @@ from PasswordGenerator import Ui_MainWindow
 from PyQt6 import QtCore, QtWidgets
 import sys
 
+from PasswordGenerateFunc import password_generator
+from MD5 import md5
+from SHA256 import hash_password as sha256
+
 
 class PassGenerator(QtWidgets.QMainWindow):
+    acsept_simvols = 'ABCD'
     def __init__(self):
         super(PassGenerator, self).__init__()
         self.ui = Ui_MainWindow()
@@ -16,6 +21,8 @@ class PassGenerator(QtWidgets.QMainWindow):
         Устанавливает обработчик событий для кнопки Generate.
         """
         self.ui.pushButton_generate.clicked.connect(self.Generate)
+        self.ui.pushButton_generate_hash.clicked.connect(self.Generate_hash)
+        self.ui.acsept_simvols.setText(self.acsept_simvols)
 
     def Generate(self):
         """
@@ -24,13 +31,27 @@ class PassGenerator(QtWidgets.QMainWindow):
         Помимо пароля, также генерируется его хэш.
         """
         password_length = self.ui.spinBox_passlength.value()
+        self.acsept_simvols = self.ui.acsept_simvols.text()
+        password = password_generator(length=password_length, characters=self.acsept_simvols)
+
+        self.ui.textEdit_password_generated.setText(password)
 
         if self.ui.radioButton_md5.isChecked():
-            password = f'MD5 {password_length}'
+            hash_text = md5(password=password)
         else:
-            password = f'SHA256 {password_length}'
+            hash_text = sha256(password=password)
 
-        self.ui.textEdit_password.setText(password)
+        self.ui.textEdit_hash.setText(hash_text)
+
+    def Generate_hash(self):
+        password = self.ui.textEdit_password_generated.toPlainText()
+        if self.ui.radioButton_md5.isChecked():
+            hash_text = md5(password=password)
+        else:
+            hash_text = sha256(password=password)
+
+        self.ui.textEdit_hash.setText(hash_text)
+
 
 
 if __name__ == '__main__':
