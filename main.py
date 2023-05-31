@@ -15,6 +15,7 @@ class PassGenerator(QtWidgets.QMainWindow):
         self.ui.setupUi(self)
         self.init_UI()
 
+
     def init_UI(self):
         """
         Метод, инициализирующий пользовательский интерфейс.
@@ -23,12 +24,14 @@ class PassGenerator(QtWidgets.QMainWindow):
         self.ui.pushButton_generate.clicked.connect(self.Generate)
         self.ui.pushButton_generate_hash.clicked.connect(self.Generate_hash)
         self.ui.acsept_simvols.setText(self.acsept_simvols)
+        self.ui.statusbar.showMessage('Готов к работе')
 
     def Generate(self):
         """
         Генерирует пароль в зависимости от выбранных настроек
         и отображет его в текстовом поле.
-        Помимо пароля, также генерируется его хэш.
+        Помимо пароля, также генерируется его хэш с помощью
+        выбранного алгоритма и отображет его в текстовом поле.
         """
         password_length = self.ui.spinBox_passlength.value()
         self.acsept_simvols = self.ui.acsept_simvols.text()
@@ -41,19 +44,29 @@ class PassGenerator(QtWidgets.QMainWindow):
 
         if self.ui.radioButton_md5.isChecked():
             hash_text = md5(password=password)
+            hash_algoritm = 'MD5'
         else:
             hash_text = sha256(password=password)
+            hash_algoritm = 'SHA256'
 
         self.ui.lineEdit_hash.setText(hash_text)
+        self.ui.statusbar.showMessage(f'Пароль и хеш {hash_algoritm} сгенерированны')
 
     def Generate_hash(self):
+        """
+        Генерирует хэш заданного пароля с помощью
+        выбранного алгоритма и отображет его в текстовом поле.
+        """
         password = self.ui.textEdit_password_generated.toPlainText()
         if self.ui.radioButton_md5.isChecked():
             hash_text = md5(password=password)
+            hash_algoritm = 'MD5'
         else:
             hash_text = sha256(password=password)
+            hash_algoritm = 'SHA256'
 
         self.ui.lineEdit_hash.setText(hash_text)
+        self.ui.statusbar.showMessage(f'Хеш {hash_algoritm} сгенерирован')
 
 
 
