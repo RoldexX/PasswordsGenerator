@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html lang="Russian">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>MD5 Function &#8212; документация Password-Generator 1.0</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="prev" title="SHA256 Function" href="sha256-function.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="md5-function">
+<h1>MD5 Function<a class="headerlink" href="#md5-function" title="Permalink to this heading">¶</a></h1>
+<p>Модуль &quot;Функция MD5&quot; в PasswordsGenerator позволяет вычислять хэш MD5 заданного пароля. MD5 - это широко используемая криптографическая хэш-функция, которая производит хэш-значение длиной 128 бит (16 байт). Однако MD5 считается менее безопасным по сравнению с более современными хэш-функциями.</p>
+<p>Для вычисления хэша MD5 пароля можно использовать функцию <cite>MD5()</cite>. Вот пример:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">password_generator</span> <span class="kn">import</span> <span class="n">MD5</span>
+
+<span class="n">password</span> <span class="o">=</span> <span class="s2">&quot;mysecretpassword&quot;</span>
+<span class="n">hash_value</span> <span class="o">=</span> <span class="n">MD5</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">hash_value</span><span class="p">)</span>
+</pre></div>
+</div>
+<span class="target" id="module-MD5.md5"></span><p>Хэширование пароля с использованием MD5.</p>
+<dl class="simple">
+<dt>Аргументы:</dt><dd><p>password (str): Пароль для хэширования.</p>
+</dd>
+<dt>Возвращает:</dt><dd><p>str: Хэшированный пароль.</p>
+</dd>
+</dl>
+<p>Это вычислит хэш MD5 для пароля &quot;mysecretpassword&quot; и выведет его значение.</p>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Password-Generator</a></h1>
+
+
+
+
+
+
+
+
+<h3>Навигация</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="password-generator.html">Password Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sha256-function.html">SHA256 Function</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">MD5 Function</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="sha256-function.html" title="предыдущая глава">SHA256 Function</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Быстрый поиск</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Искать" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Burenko Ivan, Seyfulin Mikhail, Dolgov Mikhail.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="_sources/md5-function.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,9 @@
+Модули
+======
+
+.. toctree::
+   :maxdepth: 1
+
+   password_generator   # Имя файла без расширения .py
+   sha256_function
+   md5_function
