@@ -88,7 +88,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.pushButton_close.clicked.connect(MainWindow.close)
+        #self.pushButton_close.clicked.connect(MainWindow.close)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -99,7 +99,7 @@ class Ui_MainWindow(object):
         self.radioButton_sha256.setText(_translate("MainWindow", "SHA256"))
         self.label_passlength.setText(_translate("MainWindow", "Длинна пароля:"))
         self.label_3.setText(_translate("MainWindow", "Допустимые символы пароля:"))
-        self.label_2.setText(_translate("MainWindow", "Пароль:"))
+        #self.label_2.setText(_translate("MainWindow", "Пароль:"))
         self.label.setText(_translate("MainWindow", "Хеш:"))
         self.pushButton_close.setText(_translate("MainWindow", "Закрыть программу"))
         self.pushButton_generate_hash.setText(_translate("MainWindow", "Сгенерировать только хеш"))

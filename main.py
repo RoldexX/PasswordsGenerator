@@ -35,9 +35,6 @@ class PassGenerator(QtWidgets.QMainWindow):
         """
         password_length = self.ui.spinBox_passlength.value()
         self.acsept_simvols = self.ui.acsept_simvols.text()
-        if self.acsept_simvols == '':
-            self.ui.statusbar.showMessage('Введите азбуку пароля!')
-            return
         password = password_generator(length=password_length, characters=self.acsept_simvols)
 
         self.ui.textEdit_password_generated.setText(password)
